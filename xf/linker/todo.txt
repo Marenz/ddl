@@ -1,0 +1,22 @@
+- cache by app-relative paths, not just filenames ;o
+- when a change is detected, rebuild everything that uses the changed module
+- associate obj files with components
+
++ unloading
++ cache source file dependencies to avoid scanning them all the time
++ loading of .obj and .lib files thru DDL
++ dependency finding of .d files
++ extract all deps from the main program
+	// module info
++ compiling .d files into sets of obj's
+	+ don't compile obj's included in the source app
+		this may cause some symbols to be unresolved ( the dm linker may
+		remove some symbols from the executable )
+		but nothing is lost, the missing symbols can be taken from
+		the 'misc' component source. get them.
+	+ cache the .obj files in some directory
++ gathering of required .obj files to link an app
++ basic linking
++ config parsing
++ linking according to the 'resolve order'
++ make 'self' refs local to lib types

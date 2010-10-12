@@ -1,0 +1,1 @@
+@dmd -c -o- -I.. -version=testmeta %1

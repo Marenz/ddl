@@ -1,0 +1,31 @@
+std-include    .    ../..    ../ext    ../ext/ddl    ../../../../prog/dmd/import/user
+
+type host			regex .*\.map
+type lib			regex lib/.*
+type lib			regex .*tango.*
+type plugin	regex	plugin/.*
+type misc			regex .*
+
+order host			host
+order lib			host self
+order plugin		host self lib misc
+order misc			host self lib
+
+order-weak host		host
+order-weak lib		host
+order-weak plugin	host
+order-weak misc		host
+
+order-strong host		host
+order-strong lib		host
+order-strong plugin		host
+order-strong misc		host
+
+load testLazy.map			.
+load tango-base-dmd.lib		lib
+load tango-user-dmd.lib		lib
+load snn.lib				lib
+load kernel32.lib			lib
+load user32.lib				lib
+load gdi32.lib				lib
+load shell32.lib			lib
